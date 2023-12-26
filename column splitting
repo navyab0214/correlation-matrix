@@ -1,0 +1,8 @@
+import pandas as pd
+data={'sid':[1,2,3,4,5],"sname":["a","b","c","d","e"],"address":["vzm,ap","bbl,ap","hyd,ts","bhopal,mp","chennai,tn"]}
+df=pd.DataFrame(data)
+data=df['address'].str.split(',')
+df['city']=data.str.get(0)
+df['state']=data.str.get(1)
+del df['address']
+print(df)
