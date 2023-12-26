@@ -1,0 +1,10 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+df = pd.read_csv('disease.csv')
+f = plt.figure(figsize=(10, 5))
+plt.matshow(df.corr(), fignum=f.number)
+numerical_columns = df.select_dtypes(include=['number']).columns
+plt.xticks(range(df.select_dtypes(include=['number']).shape[1]), numerical_columns, fontsize=10, rotation=90)
+plt.yticks(range(df.select_dtypes(include=['number']).shape[1]), numerical_columns, fontsize=10, rotation=360)
+plt.title('Correlation Matrix', fontsize=20) 
+plt.show()
